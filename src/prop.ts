@@ -12,8 +12,8 @@ export type RequiredType = boolean | [boolean, string] | string | Func | [Func, 
 
 export type ValidatorFunction = (value: any) => boolean | Promise<boolean>;
 export type Validator = ValidatorFunction | RegExp | {
-    validator: ValidatorFunction,
-    message?: string,
+  validator: ValidatorFunction,
+  message?: string,
 };
 
 export interface BasePropOptions {
@@ -100,12 +100,12 @@ const baseProp = (rawOptions, Type, target, key, isArray = false) => {
     };
     return;
   } else if (ref) {
-     schema[name][key] = {
+    schema[name][key] = {
       ...schema[name][key],
       type: mongoose.Schema.Types.ObjectId,
       ref: ref.name,
     };
-     return;
+    return;
   }
 
   const itemsRef = rawOptions.itemsRef;
@@ -170,10 +170,12 @@ const baseProp = (rawOptions, Type, target, key, isArray = false) => {
   }
 
   if (isArray) {
-    schema[name][key][0] = {
-      ...schema[name][key][0],
+    schema[name][key] = {
       ...options,
-      ...subSchema,
+      type: [{
+        ...schema[name][key][0],
+        ...subSchema,
+      }],
     };
     return;
   }
