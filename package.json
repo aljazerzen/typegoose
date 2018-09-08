@@ -1,8 +1,12 @@
 {
-  "name": "typegoose",
-  "version": "5.3.0",
+  "name": "@aljazerzen/typegoose",
+  "version": "5.3.6",
   "description": "Define Mongoose models using TypeScript classes.",
   "main": "lib/typegoose.js",
+  "files": [
+    "lib/*.js",
+    "lib/*.d.ts"
+  ],
   "scripts": {
     "start": "npm run build && node ./lib/typegoose.js",
     "build": "rimraf lib && tsc",
