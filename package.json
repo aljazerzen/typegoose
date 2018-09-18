@@ -1,6 +1,6 @@
 {
   "name": "@aljazerzen/typegoose",
-  "version": "5.3.6",
+  "version": "5.5.0",
   "description": "Define Mongoose models using TypeScript classes.",
   "main": "lib/typegoose.js",
   "files": [
