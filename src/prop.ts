@@ -175,7 +175,7 @@ const baseProp = (rawOptions, Type, target, key, isArray = false) => {
   const sub = new Schema({ ...subSchema }, suppressSubSchemaId ? { _id: false } : {});
 
   schema[name][key] = {
-    ...schema[name][key],
+    ...(isArray ? schema[name][key][0] : schema[name][key]),
     ...options,
     type: isArray ? [sub] : sub,
   };
